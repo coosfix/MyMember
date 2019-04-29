@@ -12,9 +12,10 @@ namespace Member
 {
     public partial class FrmMain : Form
     {
-        public FrmMain()
+        public FrmMain(string Username)
         {
             InitializeComponent();
+            this.label1.Text = "Hello!!"+Username;
         }
 
     }

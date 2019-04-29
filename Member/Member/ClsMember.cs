@@ -70,7 +70,7 @@ namespace Member
                     pUser.Value = Username;
                     cmd.Parameters.Add(pUser);
 
-                    SqlParameter pPassword = new SqlParameter("@Password", SqlDbType.VarBinary, 50);
+                    SqlParameter pPassword = new SqlParameter("@Password", SqlDbType.VarBinary, 32);
                     pPassword.Direction = ParameterDirection.Input;
                     string r = String.Concat(Password, GetRanNum(Username));
                     byte[] bytepassword = Encoding.Unicode.GetBytes(r);
@@ -81,7 +81,7 @@ namespace Member
                    SqlDataReader dr =  cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        FrmMain go = new FrmMain();
+                        FrmMain go = new FrmMain(Username);
                         go.Show();
                     }
                     else
