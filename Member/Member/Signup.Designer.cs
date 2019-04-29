@@ -1,16 +1,16 @@
 ﻿namespace Member
 {
-    partial class Form1
+    partial class SignUp
     {
         /// <summary>
-        /// 設計工具所需的變數。
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清除任何使用中的資源。
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果應該處置受控資源則為 true，否則為 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form 設計工具產生的程式碼
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 此為設計工具支援所需的方法 - 請勿使用程式碼編輯器修改
-        /// 這個方法的內容。
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -39,66 +39,68 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 47);
+            this.label2.Location = new System.Drawing.Point(14, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
-            this.label2.TabIndex = 11;
+            this.label2.TabIndex = 17;
             this.label2.Text = "密碼";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 19);
+            this.label1.Location = new System.Drawing.Point(14, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
-            this.label1.TabIndex = 12;
+            this.label1.TabIndex = 18;
             this.label1.Text = "帳號";
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(202, 76);
+            this.button2.Location = new System.Drawing.Point(187, 79);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "註冊";
+            this.button2.TabIndex = 15;
+            this.button2.Text = "登入";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(202, 14);
+            this.button1.Location = new System.Drawing.Point(187, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "登入";
+            this.button1.TabIndex = 16;
+            this.button1.Text = "註冊";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Pwordtextbox
             // 
-            this.Pwordtextbox.Location = new System.Drawing.Point(64, 44);
+            this.Pwordtextbox.Location = new System.Drawing.Point(49, 47);
             this.Pwordtextbox.Name = "Pwordtextbox";
             this.Pwordtextbox.Size = new System.Drawing.Size(120, 22);
-            this.Pwordtextbox.TabIndex = 8;
+            this.Pwordtextbox.TabIndex = 14;
             // 
             // UsertextBox
             // 
-            this.UsertextBox.Location = new System.Drawing.Point(64, 16);
+            this.UsertextBox.Location = new System.Drawing.Point(49, 19);
             this.UsertextBox.Name = "UsertextBox";
             this.UsertextBox.Size = new System.Drawing.Size(120, 22);
-            this.UsertextBox.TabIndex = 7;
+            this.UsertextBox.TabIndex = 13;
             // 
-            // Form1
+            // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 126);
+            this.ClientSize = new System.Drawing.Size(304, 116);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Pwordtextbox);
             this.Controls.Add(this.UsertextBox);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "SignUp";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "註冊";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,4 +116,3 @@
         private System.Windows.Forms.TextBox UsertextBox;
     }
 }
-
