@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Member
 
         public void CreateUser()
         {
-            string sqlconn = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog =Northwind;Integrated Security = true;";
+            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
             string sqlcmd = @"Insert into Users(Username,Password,RanNum) Values(@Username,@Password,@RanNum) ";
 
             using (SqlConnection conn = new SqlConnection(sqlconn))
@@ -55,7 +56,7 @@ namespace Member
         }
         public void ValidateUser()
         {
-            string sqlconn = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog =Northwind;Integrated Security = true;";
+            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
             string sqlcmd = @"SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
             using (SqlConnection conn = new SqlConnection(sqlconn))
             {
@@ -96,7 +97,7 @@ namespace Member
 
         public string GetRanNum(string Username)
         {
-            string sqlconn = @"Data Source =(localdb)\MSSQLLocalDB;Initial Catalog =Northwind;Integrated Security = true;";
+            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
             string sqlcmd = @"SELECT @RanNum = RanNum FROM Users WHERE Username = @Username";
             using (SqlConnection conn = new SqlConnection(sqlconn))
             {
