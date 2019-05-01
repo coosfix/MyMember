@@ -48,8 +48,6 @@ namespace Member
         }
 
 
-
-
         //寄送Email
         /// <summary>
         /// 寄送目標Email , 使用者Username , 新密碼

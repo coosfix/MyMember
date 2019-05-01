@@ -47,64 +47,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangePWpage.cs">
+    <Compile Include="視窗\MainPage1.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ChangePWpage.Designer.cs">
-      <DependentUpon>ChangePWpage.cs</DependentUpon>
+    <Compile Include="視窗\MainPage1.Designer.cs">
+      <DependentUpon>MainPage1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ClsMember.cs" />
-    <Compile Include="ForgetPassword.cs">
+    <Compile Include="方法函式\ClsMember.cs" />
+    <Compile Include="視窗\ForgetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ForgetPassword.Designer.cs">
+    <Compile Include="視窗\ForgetPassword.Designer.cs">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="視窗\MainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <Compile Include="視窗\MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="PasswordChangeFun.cs" />
-    <Compile Include="IDo.cs" />
-    <Compile Include="Maindesign.cs">
+    <Compile Include="方法函式\PasswordChangeFun.cs" />
+    <Compile Include="方法函式\IDo.cs" />
+    <Compile Include="視窗\Formdesign.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Maindesign.Designer.cs">
-      <DependentUpon>Maindesign.cs</DependentUpon>
+    <Compile Include="視窗\Formdesign.Designer.cs">
+      <DependentUpon>Formdesign.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.cs">
+    <Compile Include="視窗\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUp.Designer.cs">
+    <Compile Include="視窗\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SignIn.cs">
+    <Compile Include="視窗\SignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignIn.Designer.cs">
+    <Compile Include="視窗\SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChangePWpage.resx">
-      <DependentUpon>ChangePWpage.cs</DependentUpon>
+    <EmbeddedResource Include="視窗\MainPage1.resx">
+      <DependentUpon>MainPage1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ForgetPassword.resx">
+    <EmbeddedResource Include="視窗\ForgetPassword.resx">
       <DependentUpon>ForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Maindesign.resx">
-      <DependentUpon>Maindesign.cs</DependentUpon>
+    <EmbeddedResource Include="視窗\Formdesign.resx">
+      <DependentUpon>Formdesign.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignIn.resx">
+    <EmbeddedResource Include="視窗\SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
+    <EmbeddedResource Include="視窗\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
+    <EmbeddedResource Include="視窗\MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+    <Folder Include="NewFolder3\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

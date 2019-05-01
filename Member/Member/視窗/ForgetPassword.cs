@@ -26,7 +26,8 @@ namespace Member
         }
 
         private void button2_Click(object sender, EventArgs e)
-        { 
+        {
+            this.Close();
         }
 
         private void ForgetPassword_Load(object sender, EventArgs e)
