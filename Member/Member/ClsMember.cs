@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,13 +14,17 @@ namespace Member
 {
     class ClsMember
     {
+        private string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
+
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Email { get; set; }
 
+
+        //新建使用者
         public void CreateUser()
         {
-            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
-            string sqlcmd = @"Insert into Users(Username,Password,RanNum) Values(@Username,@Password,@RanNum) ";
+            string sqlcmd = @"Insert into Users(Username,Password,Email,RanNum) Values(@Username,@Password,@Email,@RanNum) ";
 
             using (SqlConnection conn = new SqlConnection(sqlconn))
             {
@@ -42,11 +47,13 @@ namespace Member
 
                     SqlParameter pPassword = new SqlParameter("@Password", SqlDbType.VarBinary, 32);
                     pPassword.Direction = ParameterDirection.Input;
-                    string addranPassword = String.Concat(Password, RanNum);
-                    byte[] bytePassword = Encoding.Unicode.GetBytes(addranPassword);
-                    SHA256Managed Algorithm = new SHA256Managed();
-                    pPassword.Value = Algorithm.ComputeHash(bytePassword);
+                    pPassword.Value = IDo.HashPw(Password, RanNum);
                     cmd.Parameters.Add(pPassword);
+
+                    SqlParameter pEmail = new SqlParameter("@Email", SqlDbType.NVarChar, 64);
+                    pEmail.Direction = ParameterDirection.Input;
+                    pEmail.Value = Email;
+                    cmd.Parameters.Add(pEmail);
 
                     conn.Open();
                     cmd.ExecuteNonQuery();
@@ -54,9 +61,10 @@ namespace Member
                 }
             }
         }
-        public void ValidateUser()
+
+        //驗證使用者
+        public bool ValidateUser()
         {
-            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
             string sqlcmd = @"SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
             using (SqlConnection conn = new SqlConnection(sqlconn))
             {
@@ -73,31 +81,22 @@ namespace Member
 
                     SqlParameter pPassword = new SqlParameter("@Password", SqlDbType.VarBinary, 32);
                     pPassword.Direction = ParameterDirection.Input;
-                    string r = String.Concat(Password, GetRanNum(Username));
-                    byte[] bytepassword = Encoding.Unicode.GetBytes(r);
-                    SHA256Managed Algorithm = new SHA256Managed();
-                    pPassword.Value = Algorithm.ComputeHash(bytepassword);
+                  
+                    pPassword.Value = IDo.HashPw(Password, GetRanNum(Username));
                     cmd.Parameters.Add(pPassword);
                     conn.Open();
-                   SqlDataReader dr =  cmd.ExecuteReader();
+                    SqlDataReader dr = cmd.ExecuteReader();
                     if (dr.Read())
-                    {
-                        FrmMain go = new FrmMain(Username);
-                        go.Show();
-                    }
+                        return true;
                     else
-                        MessageBox.Show("帳號錯誤");
+                        return false;
                 }
             }
         }
-        public void PasswordChange()
-        {
-            //😂
-        }
 
+        //取得資料庫雜湊用亂碼
         public string GetRanNum(string Username)
         {
-            string sqlconn = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
             string sqlcmd = @"SELECT @RanNum = RanNum FROM Users WHERE Username = @Username";
             using (SqlConnection conn = new SqlConnection(sqlconn))
             {
@@ -123,5 +122,7 @@ namespace Member
                 }
             }
         }
+
+      
     }
 }

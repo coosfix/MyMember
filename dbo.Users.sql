@@ -9,11 +9,12 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [dbo].[Users] (
-    [Id]       INT            IDENTITY (1, 1) NOT NULL,
+    [Id]       INT            IDENTITY (1, 1) PRIMARY KEY,
     [Username] NVARCHAR (16)  NOT NULL UNIQUE,
     [Password] VARBINARY (32) NOT NULL,
-    [Date]     DATETIME       NULL,
-    [RanNum]   NVARCHAR (32)  NOT NULL
+	[Email] NVARCHAR (64) NOT NULL UNIQUE,
+    [RanNum]   NVARCHAR (32)  NOT NULL,
+    [Date]     DATETIME       NULL
 );
 
 

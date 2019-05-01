@@ -47,12 +47,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangePWpage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChangePWpage.Designer.cs">
+      <DependentUpon>ChangePWpage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ClsMember.cs" />
+    <Compile Include="ForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgetPassword.Designer.cs">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordChangeFun.cs" />
+    <Compile Include="IDo.cs" />
+    <Compile Include="Maindesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maindesign.Designer.cs">
+      <DependentUpon>Maindesign.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUp.cs">
       <SubType>Form</SubType>
@@ -68,6 +88,15 @@
     <Compile Include="SignIn.Designer.cs">
       <DependentUpon>SignIn.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePWpage.resx">
+      <DependentUpon>ChangePWpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgetPassword.resx">
+      <DependentUpon>ForgetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maindesign.resx">
+      <DependentUpon>Maindesign.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,7 +114,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\Member.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,6 +129,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Close_Icon.png" />
+    <Content Include="bin\Debug\Member.exe" />
+    <Content Include="bin\Debug\Member.pdb" />
+    <Content Include="bin\Email\mail.html" />
+    <Content Include="bin\Minimize_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

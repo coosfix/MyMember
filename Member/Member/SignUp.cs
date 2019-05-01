@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Member
 {
-    public partial class SignUp : Form
+    public partial class SignUp : Maindesign
     {
         public SignUp()
         {
@@ -22,8 +22,17 @@ namespace Member
         {
             ClsMember user = new ClsMember();
 
-            user.Username = this.UsertextBox.Text;
-            user.Password = this.Pwordtextbox.Text;
+            user.Username = this.Usertext.Text;
+            user.Password = this.Pwordtext.Text;
+            if (IDo.IsValidEmail(this.Emailtext.Text))
+            {
+                user.Email = this.Emailtext.Text;
+            }
+            else
+            {
+                MessageBox.Show("Email 格式錯誤");
+                return;
+            }
             try
             {
                 user.CreateUser();
@@ -40,14 +49,18 @@ namespace Member
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
             }
             finally
             {
-                this.UsertextBox.Focus();
-                this.UsertextBox.SelectAll();
+                this.Usertext.Focus();
+                this.Usertext.SelectAll();
             }
         }
 
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

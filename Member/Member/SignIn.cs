@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Member
 {
-    public partial class SignIn : Form
+    public partial class SignIn : Maindesign
     {
         public SignIn()
         {
@@ -26,9 +26,21 @@ namespace Member
         private void button1_Click(object sender, EventArgs e)
         {
             ClsMember user = new ClsMember();
-            user.Username = this.UsertextBox.Text;
-            user.Password = this.Pwordtextbox.Text;
-            user.ValidateUser();
+            user.Username = this.Usertext.Text;
+            user.Password = this.Pwordtext.Text;
+            if (user.ValidateUser()&&this.Usertext.Text!="" && this.Pwordtext.Text != "")
+            {
+                FrmMain go = new FrmMain(user.Username);
+                go.Show();
+            }
+            else
+                MessageBox.Show("帳號密碼錯誤");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ForgetPassword sh = new ForgetPassword();
+            sh.ShowDialog();
         }
     }
 }
